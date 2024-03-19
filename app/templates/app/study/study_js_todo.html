@@ -1,0 +1,112 @@
+﻿{% extends "app/study.html" %}
+
+{% block study %}
+
+{% load static %}
+
+<div class="study-notebook-block">
+
+
+    <div class="first-page-notebook">
+        <h2>{{ task_title }}.</h2>
+        <h3>{{ task }} Создать ежедневник.</h3>
+        <p>
+            У Мартышки много дел, идей, задумок и задач. Поэтому ей просто необходим простой, но функциональный ежедневник! <br />
+            Вот что она хотела бы в нём видеть:
+        </p>
+        <ul class="ul_list">
+            <li>Разделение дел по важности (срочности).</li>
+            <li>Возможность откладывать дела в Долгий ящик.</li>
+            <li>Иметь возможность просмотреть завершённые задачи.</li>
+            <li>Видеть хронологию дел (Когда задача добавлена, когда выполнена).</li>
+            <li>Удалять неактуальные задачи.</li>
+            <li>Возможность очистки всего ежедневника.</li>
+        </ul>
+        <h3>Проверка работоспособности:</h3>
+        <p>
+            1. Добавить дела используя фильтр. <br />
+            Срочные:
+            <ul>
+                <li>Составить список дел.</li>
+                <li>Купить банан.</li>
+                <li>Съесть банан.</li>
+            </ul>
+            Хорошо бы:
+            <ul>
+                <li>Вычесать шерсть.</li>
+                <li>Изловить блох.</li>
+                <li>Охмурить Макаку.</li>
+            </ul>
+        </p>
+        <p>
+            2. Немного подумав, убрать задачу Охмурить Макаку в долгий ящик.
+        </p>
+        <p>
+            3. Галочкой пометить как выполненные следующие дела:
+            <ul>
+                <li>Составить список дел.</li>
+                <li>Вычесать шерсть.</li>
+            </ul>
+        </p>
+        <p>
+            4. Теперь можно восстановить задачу Охмурить Макаку, вытащив её из Долгого ящика.
+        </p>
+        <p>
+            5. Если всё сработало как надо, порадоваться за Мартышку!
+        </p>
+    </div>
+
+    <div id="spring"></div>
+
+    <div class="second-page-notebook">
+        <section id="todo_div">
+
+            <div id="todo_div_in">
+
+                <select id="todo_priority">
+                    <option class="todo_priority_option" value="urgently">срочно</option>
+                    <option class="todo_priority_option" value="not_urgent">хорошо бы</option>
+                </select>
+                <input id="todo_task_in" type="text">
+                <span id="todo_btn_add" class="todo_btn_add">Добавить</span>
+
+            </div>
+
+            <div id="todo_div_body">
+
+                <div id="todo_div_menu">
+
+                    <div id="todo_div_nav">
+                        <label for="radio_todo_active" class="todo_radio_label label_active">Активные</label>
+                        <input id="radio_todo_active" type="radio" name="radio_todo" value="active" checked hidden>
+                        <label for="radio_todo_delayed" class="todo_radio_label label_delayed">Долгий ящик</label>
+                        <input id="radio_todo_delayed" type="radio" name="radio_todo" value="delayed" hidden>
+                        <label for="radio_todo_completed" class="todo_radio_label label_completed">Завершённые</label>
+                        <input id="radio_todo_completed" type="radio" name="radio_todo" value="completed" hidden>
+                    </div>
+
+                    <span id="todo_clear">Очистить</span>
+
+                </div>
+
+                <div id="todo_div_lists">
+
+                    <span class="todo_name_priority" hidden>Срочные дела:</span>
+                    <ul id="todo_list_urgently" class="todo_list" data-todo-option="active"></ul>
+
+                    <span class="todo_name_priority" hidden>Хорошо бы сделать:</span>
+                    <ul id="todo_list_not_urgent" class="todo_list" data-todo-option="active"></ul>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</div>
+
+<script src="{% static 'app/scripts/study_todo.js' %}"></script>
+
+{% endblock study%}

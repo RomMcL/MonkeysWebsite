@@ -1,0 +1,253 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+
+<div class="notebook-block">
+
+    {% if form != None %}
+
+    <h2>Заполните и отправьте анкету</h2>
+
+    <div class="anket-container">
+        <div class="anket-explanation">
+            <p>
+                Мартышка хочет провести небольшой соцопрос, чтобы выяснить в каком обществе она живёт.
+                Возможно она решит заняться бизнесом и продавать лакомства. Но какие? И кто будет её целевой аудиторией?
+                Для ответа на эти вопросы, Мартышка собирает ответы в базу данных и анализирует результаты.
+            </p>
+            <p>
+                Пройти опрос может любой посетитель сайта, но учтены будут лишь ответы от зарегистрированных пользователей.
+                Кроме того, учитывается один ответ каждого респондента.
+                Повторное прохождение опроса не добавляет новый ответ, а меняет ранее данный.
+            </p>
+
+            <hr class="hr_line" />
+
+            <div class="anket_itog">
+
+                {% if user.profile.poll %}
+                <p> Вы уже проходили этот опрос. Повторная отправка данных изменит Ваш предыдущий ответ.</p>
+                <p><a class="btn_main" href="{% url 'anketarez' %}"> Посмотреть анализ ответов </a></p>
+                {% else %}
+                {% if user.is_authenticated %}
+                <p> Вы авторизованы на сайте. Ваши ответы будут учтены при анализе результатов. </p>
+                <p> Увидеть анализ можно после прохождения опроса. </p>
+                {% else %}
+                <p> Вы не авторизованы на сайте. Ваши ответы не будут учтены при анализе результатов. </p>
+                <table>
+                    <tr>
+                        <td>
+                            <p><a class="btn_main" href="{% url 'login' %}"> Войти </a></p>
+                        </td>
+                        <td>
+                            <span>или</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <p><a class="btn_main" href="{% url 'registration' %}"> Зарегистрироваться </a></p>
+                        </td>
+                    </tr>
+                </table>
+                {% endif %}
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="anket-form">
+            <form class="form_style" action="#" method="post">
+                {% csrf_token %}
+
+                <div class="form_name">Форма опроса</div><br>
+
+                <div class="form_section">
+                    <label class="opr_question" for="{{ form.name.id_for_label }}">{{ form.name.label }}</label>
+                    {{ form.name }}<br>
+                </div>
+
+                <div class="form_section">
+                    <label class="opr_question" for="{{ form.type_monkey.id_for_label }}">{{ form.type_monkey.label }}</label>
+                    {{ form.type_monkey }}<br>
+                </div>
+
+                <div class="form_section">
+                    <label class="opr_question" for="{{ form.gender.id_for_label }}">{{ form.gender.label }}</label><br>
+                    {{ form.gender }}
+                </div>
+
+                <div class="form_section">
+                    <label class="opr_question" for="{{ form.job.id_for_label }}">{{ form.job.label }}</label>
+                    {{ form.job }}<br>
+                </div>
+
+                <div class="form_section">
+
+                    <table class="table_opr" cellpadding="3" cellspacing="2">
+                        <caption class="opr_question">Любимые лакомства:</caption>
+                        <tr>
+                            <td>{{ form.banan }}</td>
+                            <td><label for="{{ form.banan.id_for_label }}">{{ form.banan.label }}</label></td>
+                            <td>{{ form.pear }}</td>
+                            <td><label for="{{ form.pear.id_for_label }}">{{ form.pear.label }}</label></td>
+                        </tr>
+                        <tr>
+                            <td>{{ form.orange }}</td>
+                            <td><label for="{{ form.orange.id_for_label }}">{{ form.orange.label }}</label></td>
+                            <td>{{ form.apple }}</td>
+                            <td><label for="{{ form.apple.id_for_label }}">{{ form.apple.label }}</label></td>
+                        </tr>
+                        <tr>
+                            <td>{{ form.kiwi }}</td>
+                            <td><label for="{{ form.kiwi.id_for_label }}">{{ form.kiwi.label }}</label></td>
+                            <td>{{ form.mushroom }}</td>
+                            <td><label for="{{ form.mushroom.id_for_label }}">{{ form.mushroom.label }}</label></td>
+                        </tr>
+                        <tr>
+                            <td colspan="1">{{ form.alco_bloh }}</td>
+                            <td colspan="3" id="last_td"><label for="{{ form.alco_bloh.id_for_label }}">{{ form.alco_bloh.label }}</label></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="form_section">
+                    <span class="opr_question"><label for="{{ form.message.id_for_label }}">{{ form.message.label }}</label></span><br>
+                    {{ form.message }}<br>
+                </div>
+
+                <div class="form_section">
+                    <label class="opr_question" for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+                    {{ form.email }}<br><br>
+                </div>
+
+                <div>
+                    <button type="submit" name="button_opr" id="btn_opros">Отправить ответы</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+
+    {% else %}
+    <div class="survey_results">
+
+        <h2>Принято! Спасибо!</h2>
+        <h3>Получена следующая информация:</h3>
+        <!--
+        <p>
+            Вы <span>{{ data.type_monkey }}</span> по имени <span>{{ data.name }}</span>. <br>
+            Вы <span>{{ data.gender }}</span> по праву рождения, но ходят слухи, что в нашем современном обществе это не окончательный вердикт, что на мой взгляд весьма спорно.<br>
+            Днём у Вас полно дел, ведь вы <span>{{ data.job }}</span>! Ну… какой род деятельности, такие и дела.<br>
+            Кушаете вы сносно, ваш типичный рацион – это: <span>{{ data.diet }}.</span><br>
+            А вот вечерами Вас часто посещает одна и та же мысль: <span>&quot;{{ data.message }}&quot;</span> Это очень глубоко!<br>
+            Ваш e-mail <span>{{ data.email }}</span>, но это не важно, потому что мы не собирались его нигде использовать.
+        </p>
+        -->
+        <ul>
+            <li><span>Имя:</span> {{ data.name }}</li>
+            <li><span>Вид:</span> {{ data.type_monkey }}</li>
+            <li><span>Пол:</span> {{ data.gender }}</li>
+            <li><span>Род деятельности:</span> {{ data.job }}</li>
+            <li><span>Рацион:</span> {{ data.diet }}</li>
+            <li><span>Умная мысль:</span> {{ data.message }}</li>
+            <li><span>Ваш e-mail:</span> {{ data.email }}</li>
+        </ul>
+
+        <hr class="hr_line" />
+
+        <div class="anket_itog">
+
+            {% if user.is_authenticated %}
+
+            <p> Ваши ответы записаны и учтены в результатах опроса. </p>
+
+            <p><a class="btn_main" href="{% url 'anketarez' %}"> Посмотреть анализ ответов </a></p>
+
+            {% else %}
+            <p> Вы не авторизованы на сайте. К сожалению, Ваши ответы не были учтены при анализе результатов. </p>
+            <p> Увидеть анализ можно после прохождения опроса в качестве зарегистрированного пользователя. </p>
+            <table>
+                <tr>
+                    <td>
+                        <p><a class="btn_main" href="{% url 'login' %}"> Войти </a></p>
+                    </td>
+                    <td>
+                        <span>или</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <p><a class="btn_main" href="{% url 'registration' %}"> Зарегистрироваться </a></p>
+                    </td>
+                </tr>
+            </table>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+</div>
+    
+
+
+
+<script>
+
+    const default_btn_color = $('#btn_opros').css('color');
+    const default_field_bgcolor = $('#id_name').css('background-color');
+
+    function button_mouseover(){
+        $('#btn_opros').css('color', 'black');
+        $('#btn_opros').css('box-shadow', '0 0 1px rgba(0,0,0,.5) inset, 0 2px 3px rgba(0, 0, 0, .5) inset, 0 1px 1px rgba(255, 255, 255, .1) ');
+    }
+
+    function button_mouseout() {
+        $('#btn_opros').css('color', default_btn_color);
+        $('#btn_opros').css('box-shadow', '0 1px rgba(255,255,255,.2) inset, 0 3px 5px rgba(0,1,6,.5), 0 0 1px 1px rgba(0,1,6,.2)');
+    }
+
+    function field_focus(id) {
+        $(id).css('background-color', 'lightgray');
+    }
+
+    function field_blur(id) {
+        $(id).css('background-color', default_field_bgcolor);
+    }
+
+
+
+    $('#btn_opros').mouseover(button_mouseover);
+    $('#btn_opros').mouseout(button_mouseout);
+
+    $('#id_name').focus(function () {
+        field_focus('#id_name')
+        });
+    $('#id_name').blur(function () {
+        field_blur('#id_name')
+        });
+
+    $('#id_job').focus(function () {
+        field_focus('#id_job')
+        });
+    $('#id_job').blur(function () {
+        field_blur('#id_job')
+        });
+
+    $('#id_email').focus(function () {
+        field_focus('#id_email')
+        });
+    $('#id_email').blur(function () {
+        field_blur('#id_email')
+        });
+
+    $('#id_message').focus(function () {
+        field_focus('#id_message')
+        });
+    $('#id_message').blur(function () {
+        field_blur('#id_message')
+        });
+
+</script>
+
+
+
+{% endblock %}

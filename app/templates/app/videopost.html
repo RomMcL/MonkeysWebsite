@@ -1,0 +1,27 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+
+<div class="notebook-block">
+
+    <h2>{{ title }}</h2>
+
+    <hr class="hr_line" />
+
+    <div class="video-div">
+        <h3>Программист выбирает язык программирования</h3>
+        <video src="/media/video_1.mp4" controls="controls" width="400" height="300" poster="/media/pr_1.jpg"></video>
+    </div>
+
+    <hr class="hr_line" />
+
+    <div class="video-div">
+        <h3>Мартышка написала игру под Android на Java</h3>
+        <video src="/media/video_2.mp4" controls="controls" width="400" height="300" poster="/media/pr_2.jpg"></video>
+        <p>RuStore: "Совы против Хомяков"</p>
+    </div>
+
+</div>
+
+
+{% endblock %}

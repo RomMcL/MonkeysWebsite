@@ -1,0 +1,158 @@
+﻿{% extends "app/study.html" %}
+
+{% block study %}
+
+{% load static %}
+
+<div class="study-notebook-block">
+
+
+    <div class="first-page-notebook">
+        <h2>{{ task_title }}.</h2>
+        <h3>{{ task }} Создать симпатичный слайдер.</h3>
+        <p>
+            Мартышка решила создать небольшой фотоальбом в виде слайдера, куда бы она поместила фото своих друзей и коллег. <br />
+            Для этого она решила сделать слайдер в слайдере, первый будет являться своего рода каталогом, 
+            а второй хранилищем фото.
+        </p>
+        <ul class="ul_list">
+            <li>Первый слайдер статичный, с ручной промоткой.</li>
+            <li>Второй слайдер открывается с помощью кнопки Подробнее.</li>
+            <li>Выполнен в виде 3D карусели с автоматической промоткой. </li>
+            <li>Инструменты управления слайдером.</li>
+            <li>Возможность увеличения фото во втором слайдере.</li>
+        </ul>
+    </div>
+
+    <div id="spring"></div>
+
+    <div class="second-page-notebook">
+        <section>
+
+            <div class="slider">
+
+                <div class="slider_items">
+                    <div class="slider_item active-slide">
+                        <img src="{% static 'app/content/img/monkeys_foto/m1.jpg'%}" alt="Мартышка">
+                        <div class="main_slider_div">
+                            <span class="monkey_name monkey_name_active">Мартышка</span>
+                            <div class="monkey_description monkey_description_active">
+                                Род приматов из семейства мартышковых, состоящий из 25 видов.
+                            </div>
+                            <button class="slide_btn_detail">Подробнее</button>
+                        </div>
+                    </div>
+                    <div class="slider_item">
+                        <img src="{% static 'app/content/img/monkeys_foto/m2.jpg'%}" alt="Капуцин">
+                        <div class="main_slider_div">
+                            <span class="monkey_name">Капуцин</span>
+                            <div class="monkey_description">
+                                Род обезьян, который объединяет до тридцати подвидов, группируемых в четыре вида.
+                            </div>
+                            <button class="slide_btn_detail">Подробнее</button>
+                        </div>
+                    </div>
+                    <div class="slider_item">
+                        <img src="{% static 'app/content/img/monkeys_foto/m3.jpg'%}" alt="Шимпанзе">
+                        <div class="main_slider_div">
+                            <span class="monkey_name">Шимпанзе</span>
+                            <div class="monkey_description">
+                                Род из семейства гоминид отряда приматов.
+                            </div>
+                            <button class="slide_btn_detail">Подробнее</button>
+                        </div>
+                    </div>
+                    <div class="slider_item">
+                        <img src="{% static 'app/content/img/monkeys_foto/m4.jpg'%}" alt="Орангутан">
+                        <div class="main_slider_div">
+                            <span class="monkey_name">Орангутан</span>
+                            <div class="monkey_description">
+                                Род древесных человекообразных обезьян, один из наиболее близких к человеку по гомологии ДНК.
+                            </div>
+                            <button class="slide_btn_detail">Подробнее</button>
+                        </div>
+                    </div>
+                    <div class="slider_item">
+                        <img src="{% static 'app/content/img/monkeys_foto/m5.jpg'%}" alt="Горилла">
+                        <div class="main_slider_div">
+                            <span class="monkey_name">Горилла</span>
+                            <div class="monkey_description">
+                                Род обезьян, включающий самых крупных современных представителей отряда приматов.
+                            </div>
+                            <button class="slide_btn_detail">Подробнее</button>
+                        </div>
+                    </div>
+                    <div class="slider_item">
+                        <img src="{% static 'app/content/img/monkeys_foto/m6.jpg'%}" alt="Гамадрил">
+                        <div class="main_slider_div">
+                            <span class="monkey_name">Павиан</span>
+                            <div class="monkey_description">
+                                Род приматов из семейства мартышковых.
+                            </div>
+                            <button class="slide_btn_detail">Подробнее</button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <button class="slider_btn slider_btn_prev"></button>
+                <button class="slider_btn slider_btn_next"></button>
+
+                <div class="slider_indicators">
+
+                    <img src="{% static 'app/content/img/monkeys_foto/m1.jpg' %}" alt="Мартышка" class="slider_indicator slider_indicator_active">
+                    <img src="{% static 'app/content/img/monkeys_foto/m2.jpg' %}" alt="Капуцин" class="slider_indicator">
+                    <img src="{% static 'app/content/img/monkeys_foto/m3.jpg' %}" alt="Шимпанзе" class="slider_indicator">
+                    <img src="{% static 'app/content/img/monkeys_foto/m4.jpg' %}" alt="Орангутан" class="slider_indicator">
+                    <img src="{% static 'app/content/img/monkeys_foto/m5.jpg' %}" alt="Горилла" class="slider_indicator">
+                    <img src="{% static 'app/content/img/monkeys_foto/m6.jpg' %}" alt="Гамадрил" class="slider_indicator">
+
+                </div>
+
+            </div>
+
+            <div class="study_carousel_modal">
+                <div class="carousel_modal-content">
+                    <img class="study_carousel_modal-image">
+                </div>
+            </div>
+
+        </section>
+
+        <section class="slide_detail slide_detail_hidden">
+
+            <div class="carousel_btn_div">
+                <button class="carousel_btn carousel_btn_next"></button>
+                <button class="carousel_btn carousel_btn_prev"></button>
+            </div>
+
+            <div class="container_carousel">
+                <div class="study_carousel">
+                    <div class="study_carousel_face" style="transform: rotateY(0deg) translateZ( 172px );"><span>1</span></div>
+                    <div class="study_carousel_face" style="transform: rotateY(40deg) translateZ(172px);"><span>2</span></div>
+                    <div class="study_carousel_face" style="transform: rotateY(80deg) translateZ(172px);"><span>3</span></div>
+                    <div class="study_carousel_face" style="transform: rotateY(120deg) translateZ(172px);"><span>4</span></div>
+                    <div class="study_carousel_face" style="transform: rotateY(160deg) translateZ(172px);"><span>5</span></div>
+                    <div class="study_carousel_face" style="transform: rotateY(200deg) translateZ(172px);"><span>6</span></div>
+                    <div class="study_carousel_face" style="transform: rotateY(240deg) translateZ(172px);"><span>7</span></div>
+                    <div class="study_carousel_face" style="transform: rotateY(280deg) translateZ(172px);"><span>8</span></div>
+                    <div class="study_carousel_face" style="transform: rotateY(320deg) translateZ(172px);"><span>9</span></div>
+                </div>
+            </div>
+
+            <div class="carousel_btn_div">
+                <button class="carousel_btn carousel_btn_anim"></button>
+            </div>
+
+        </section>
+        <br />
+        <br />
+        <br />
+    </div>
+
+</div>
+
+<script src="{% static 'app/scripts/study_slider.js' %}"></script>
+
+{% endblock study%}
+

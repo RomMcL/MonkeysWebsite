@@ -1,0 +1,88 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+
+<div class="notebook-block">
+
+    <h2>Обучение Мартышки.</h2>
+
+    <div class="study-nav">
+        <div class="study-nav-html">
+            <h3>HTML и CSS:</h3>
+            <ul class="study-nav-list">
+                <li><a href="{% url 'study_html_firstpage' %}">Первая странца</a></li>
+                <li><a href="{% url 'study_html_text_formatting' %}">Оформление текста</a></li>
+                <li><a href="{% url 'study_html_monkey_card' %}">Визитка Мартышки</a></li>
+                <li><a href="{% url 'study_html_creating_form' %}">Формы и таблицы</a></li>
+            </ul>
+        </div>
+
+        <div class="study-nav-js">
+            <h3>JavaScript:</h3>
+            <ul class="study-nav-list">
+                <li><a href="{% url 'study_js_budget' %}">Бюджет</a></li>
+                <li><a href="{% url 'study_js_calculator' %}">Калькулятор</a></li>
+                <li><a href="{% url 'study_js_todo' %}">Ежедневник</a></li>
+                <li><a href="{% url 'study_js_slider' %}">Фото-слайдер</a></li>
+                <li><a href="{% url 'study_js_weather' %}">Погодник</a></li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+
+{% block study %}
+
+<div class="study-notebook-block">
+
+
+    <div class="first-page-notebook">
+        <h2>Тетрадочка для практики</h2>
+        <p>
+            Для записи своих практических заданий Мартышка завела себе блочную тетрадку. <br />
+            Переход между заданиями реализован с помощью меню над тетрадкой.<br />
+            На этой странице тетради она будет описывать задания, которые ставит перед собой.
+        </p>
+        <p>
+            Она должна содержать:
+        </p>
+        <ul class="ul_list">
+            <li>Название.</li>
+            <li>Постановку задачи.</li>
+            <li>Пояснения и уточнения.</li>           
+        </ul>
+    </div>
+
+    <div id="spring"></div>
+
+    <div class="second-page-notebook">
+        <h3>Результаты работы Мартышки</h3>
+        <br />
+        <br />
+        <p>
+            На этой странице будет размещён результат выполнения поставленных задач.
+        </p>
+        <br />
+        <p>
+            Вопросы, мнения, информацию о багах и недочётах можно оставить в виде комментария к соответствующей статье Блога.
+        </p>
+        <br />
+        <p><a href="{% url 'blogpost' parametr=3 %}" class="btn_main" id="study_blog_btn"> Оставить комментарий &raquo; </a> </p>
+        <br />
+    </div>
+
+
+
+</div>
+
+
+{% endblock study%}
+
+
+
+{% endblock content%}
+
+
+
+

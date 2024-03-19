@@ -1,0 +1,213 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+
+{% load static %}
+
+<div class="notebook-block">
+
+    <h2>Анализ результатов опроса</h2>
+
+    {% if user.profile.poll %}
+
+    <h3> Всего респондентов - {{ respondents_count }}. </h3>
+
+    <br />
+
+    <table class="poll-respond-table">
+        <caption>Первые три респондента</caption>
+        <tr>
+            <th>Респондент</th>
+            <th>Род деятельности</th>
+            <th>Рацион</th>
+            <th>Мысль</th>
+            <th>Дата опроса</th>
+        </tr>
+        {% for item in first3 %}
+        <tr>
+            <td>{{ item.type_monkey }} <br /> {{ item.name }}  <br /> ({{ item.gender }})</td>
+            <td>{{ item.job }}</td>
+            <td>{{ item.diet }}</td>
+            <td>{{ item.message }}</td>
+            <td>{{ item.date }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <table class="poll-respond-table">
+        <caption>Последние три респондента</caption>
+        <tr>
+            <th>Респондент</th>
+            <th>Род деятельности</th>
+            <th>Рацион</th>
+            <th>Мысль</th>
+            <th>Дата опроса</th>
+        </tr>
+        {% for item in last3 %}
+        <tr>
+            <td>{{ item.type_monkey }} <br /> {{ item.name }}  <br /> ({{ item.gender }})</td>
+            <td>{{ item.job }}</td>
+            <td>{{ item.diet }}</td>
+            <td>{{ item.message }}</td>
+            <td>{{ item.date }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h3> Анализ вкусовых предпочтений. </h3>
+
+    <div class="analysis-container">
+
+        <div class="analysis-menu">
+            <div class="graf-div">
+                <canvas id="gender_chart"></canvas>
+            </div>
+            <div>
+                <div class="analysis_gender_section">
+                    <p>Рацион:</p>
+                    <div class="radio-div">
+                        <div>
+                            <label for="radio_gender_she">Самок</label>
+                            <input type="radio" name="radio_gender" id="radio_gender_she">
+                        </div>
+                        <div>
+                            <label for="radio_gender_he">Самцов</label>
+                            <input type="radio" name="radio_gender" id="radio_gender_he">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="analysis-chart">
+            <div>
+                <p id="analysis_gender_question"> Чей рацион Вас интересует? </p>
+            </div>
+            <div class="graf-div">
+                <canvas id="gender_diet_chart"></canvas>
+            </div>
+        </div>
+
+    </div>
+
+    <br />
+    <br />
+
+
+    <div class="analysis-container">
+
+        <div class="analysis-menu">
+            <div class="graf-div">
+                <canvas id="type_monkey_chart"></canvas>
+            </div>
+            <div>
+                <p>Рацион:</p>
+                <select id="select_vid">
+                    <option value="Start" selected>Выбор вида </option>
+                    <option value="Hamadryas">Гамадрилов </option>
+                    <option value="Gorilla">Горилл</option>
+                    <option value="Macaque">Макак</option>
+                    <option value="Monkey">Мартышек</option>
+                    <option value="Orangutan">Орангутанов</option>
+                    <option value="Baboon">Павианов</option>
+                    <option value="Chimpanzee">Шимпанзе</option>
+                </select>
+            </div>
+        </div>
+        <div class="analysis-chart">
+            <div>
+                <p id="analysis_type_question"> Чей рацион Вас интересует? </p>
+            </div>
+            <div class="graf-div">
+                <canvas id="monkey_diet_chart"></canvas>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="analysis-container">
+
+        <div class="analysis-chart">
+            <canvas id="diet_all_chart"></canvas>
+        </div>
+
+    </div>
+
+    <div class="thoughts">
+        <h3> Мысли респондентов. </h3>
+        <label for="input_count_thoughts">Случайных мыслей:</label>
+        <input type="number" name="input_count_thoughts" id="input_count_thoughts" min="1" max="7" maxlength="1">
+        <button id="thoughts_btn" class="btn_main">Показать</button>
+        <span> (до 7 мыслей разных респондентов) </span>
+
+        <div id="thoughts_div">
+
+        </div>
+
+    </div>
+
+    {% else %}
+
+    <div class="anket_itog">
+
+        <p> Увидеть анализ можно после прохождения опроса. </p>
+        {% if not user.is_authenticated %}
+        <table>
+            <tr>
+                <td>
+                    <p><a class="btn_main" href="{% url 'login' %}"> Войти </a></p>
+                </td>
+                <td>
+                    <span>или</span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <p><a class="btn_main" href="{% url 'registration' %}"> Зарегистрироваться </a></p>
+                </td>
+            </tr>
+        </table>
+        {% endif %}
+    </div>
+
+    {% endif %}
+
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    let data_for_js = {
+        males_count: "{{ males_count|escapejs }}",
+        females_count: "{{ females_count|escapejs }}",
+
+        hamadryas_count: "{{ hamadryas_count|escapejs }}",
+        gorilla_count: "{{ gorilla_count|escapejs }}",
+        macaque_count: "{{ macaque_count|escapejs }}",
+        monkey_count: "{{ monkey_count|escapejs }}",
+        orangutan_count: "{{ orangutan_count|escapejs }}",
+        baboon_count: "{{ baboon_count|escapejs }}",
+        chimpanzee_count: "{{ chimpanzee_count|escapejs }}",
+
+        banan_all: "{{ banan_all|escapejs }}",
+        pear_all: "{{ pear_all|escapejs }}",
+        orange_all: "{{ orange_all|escapejs }}",
+        apple_all: "{{ apple_all|escapejs }}",
+        kiwi_all: "{{ kiwi_all|escapejs }}",
+        mushroom_all: "{{ mushroom_all|escapejs }}",
+        alco_bloh_all: "{{ alco_bloh_all|escapejs }}",
+
+        data_diet: "{{ data_diet|escapejs }}"
+    };
+
+
+
+</script>
+
+<script src="{% static 'app/scripts/analysis_chart.js' %}"></script>
+
+
+
+{% endblock %}

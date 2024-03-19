@@ -1,0 +1,90 @@
+﻿{% extends "app/study.html" %}
+
+{% block study %}
+
+{% load static %}
+
+<div class="study-notebook-block">
+
+
+    <div class="first-page-notebook">
+        <h2>{{ task_title }}.</h2>
+        <h3>{{ task }} Создать калькулятор</h3>
+        <p>
+            После составления бюджета, Мартышка поняла, что ей нужен калькулятор. <br />
+            Калькулятор – он и в Африке калькулятор! Основная задача – безошибочное выполнение своей прямой функции,
+            без багов и недочётов.
+        </p>
+        <ul class="ul_list">
+            <li>Классический набор функций простого калькулятора.</li>
+            <li>Экран для вывода сообщений о некорректном вводе команд пользователем.</li>
+            <li>Смена внешнего вида калькулятора. Кнопка Skins.</li>
+        </ul>
+    </div>
+
+    <div id="spring"></div>
+
+    <div class="second-page-notebook">
+        <section id="section_calculator">
+
+            <div id="calculator_1_0" class="calculator_1_0">
+                <div id="calc_main_display" class="calc_main_display">
+                    <div id="obert_display_form" class="obert_display_form">
+                        <div id="calc_display_formula" class="calc_display_formula" role="textbox">0</div>
+                    </div>
+                    <input type="text" id="calc_display_rez" class="calc_display_rez" value="0">
+                </div>
+                <div id="calc_display_error" class="calc_display_error"></div>
+                <div class="calculator_buttons">
+
+                    <button id="calc_btn_ac" class="calc_btn btn_mainznak">AC</button>
+                    <button id="calc_btn_pl_min" class="calc_btn btn_mainznak">+/-</button>
+                    <button id="calc_btn_perc" class="calc_btn btn_mainznak">%</button>
+                    <button id="calc_btn_back" class="calc_btn btn_mainznak">back</button>
+
+                    <button id="calc_btn_7" class="calc_btn">7</button>
+                    <button id="calc_btn_8" class="calc_btn">8</button>
+                    <button id="calc_btn_9" class="calc_btn">9</button>
+                    <button id="calc_btn_del" class="calc_btn btn_dopznak">/</button>
+
+                    <button id="calc_btn_4" class="calc_btn">4</button>
+                    <button id="calc_btn_5" class="calc_btn">5</button>
+                    <button id="calc_btn_6" class="calc_btn">6</button>
+                    <button id="calc_btn_umn" class="calc_btn btn_dopznak">*</button>
+
+                    <button id="calc_btn_1" class="calc_btn">1</button>
+                    <button id="calc_btn_2" class="calc_btn">2</button>
+                    <button id="calc_btn_3" class="calc_btn">3</button>
+                    <button id="calc_btn_min" class="calc_btn btn_dopznak">-</button>
+
+                    <button id="calc_btn_poi" class="calc_btn">.</button>
+                    <button id="calc_btn_0" class="calc_btn">0</button>
+                    <button id="calc_btn_ans" class="calc_btn">ans</button>
+                    <button id="calc_btn_pl" class="calc_btn btn_dopznak">+</button>
+
+                    <button id="calc_btn_scobo" class="calc_btn">(</button>
+                    <button id="calc_btn_scoz" class="calc_btn">)</button>
+                    <button id="calc_btn_eq" class="calc_btn">=</button>
+
+                </div>
+
+                <button id="btn_calc_skins" class="btn_calc_skins">Skins</button>
+
+                <div id="div_skins" class="calc_skin_content">
+                    <button id="skin1" class="calc_skin_btn calc_skin_btn_checked">Black Accountant</button>
+                    <button id="skin2" class="calc_skin_btn">Square Counter</button>
+                    <button id="skin3" class="calc_skin_btn">Skin Calculator</button>
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</div>
+
+<script src="{% static 'app/scripts/study_calculator.js' %}"></script>
+
+{% endblock study%}
+

@@ -1,0 +1,101 @@
+﻿{% extends "app/study.html" %}
+
+{% block study %}
+
+{% load static %}
+
+<div class="study-notebook-block">
+
+
+    <div class="first-page-notebook">
+        <h2>{{ task_title }}.</h2>
+        <h3>{{ task }} Проработать использование изображений, позиционирование блоков и стилизацию ссылок.</h3>
+        <p>
+            Научиться встраивать изображения в HTML, настраивать их размер и позиционирование. <br />
+            Разобраться с позиционированием элементов на странице сайта..<br />
+            Освоить стилизацию ссылок.
+        </p>
+        <ul class="ul_list">
+            <li>Разместить на странице фото Мартышки.</li>
+            <li>Flexbox. Позиционирования элементов в CSS.</li>
+            <li>Разместить фото нескольких друзей Мартышки с гибким позиционированием.</li>
+            <li>Стилизация ссылок в виде кнопок.</li>
+            <li>Дополнительно: псевдоклассы в CSS.</li>
+        </ul>
+    </div>
+
+    <div id="spring"></div>
+
+    <div class="second-page-notebook">
+        <div class="lesson-html-div">
+            <div class="lesson-html-header-wrapper">
+                <ul id="lesson-html-navigation_left">
+                    <a href="{% url 'study_html_text_formatting' %}">
+                    <li>&lt;&lt;</li></a>
+                    <a href="{% url 'study_html_creating_form' %}">
+                    <li>&gt;&gt;</li></a>
+                </ul>
+
+                <ul id="lesson-html-navigation_right">
+                    <a href="{% url 'study' %}">
+                    <li>На главную</li></a>
+                    <a href="{% url 'study_html_monkey_card' %}">
+                    <li>Визитка</li></a>
+                </ul>
+
+                <div class="lesson-html-header">
+                    Визитка Мартышки
+                </div>
+            </div>
+
+            <div id="lesson-html-main">
+                <img class="lesson-html-card_avatar" src="{% static 'app/content/img/avat_1.jpg' %}" alt="Мартышка Чубатая" />
+
+                <h2 class="lesson-html-title">Мартышка Чубатая</h2>
+
+                <p>
+                    Разместив своё первое фото на страничке, Мартышка не могла нарадоваться. Очень красиво! Лучше, чем у Админа
+                    в паспорте раза в три. На основании этих мыслей, Мартышка решила сделать свою визитку, страницу где она
+                    расскажет о себе, своих навыках и умениях. Сделает она это позже, выделив под эту задумку целый раздел
+                    сайта – раздел О нас. 
+                </p>
+                <h3 class="lesson-html-subtitle">Содержание будущей визитки:</h3>
+                <ul class="lesson-html-ul_list">
+                    <li>Обалденное фото.</li>
+                    <li>Рассказ о себе.</li>
+                    <li>Перечисление своих достоинств.</li>
+                </ul>
+                <p>Ну а пока она ещё потренируется с размещением фото своих друзей, и сделает она это в гибком контейнере.</p>
+                <h3 class="lesson-html-subtitle">Друзья Мартышки:</h3>
+                <div class="study-monkey-card-friends">
+                    <img src="{% static 'app/content/img/monkeys_foto/m2.jpg'%}" alt="Капуцин" />
+                    <img src="{% static 'app/content/img/monkeys_foto/m3.jpg'%}" alt="Шимпанзе" />
+                    <img src="{% static 'app/content/img/monkeys_foto/m4.jpg'%}" alt="Орангутан" />
+                    <img src="{% static 'app/content/img/monkeys_foto/m5.jpg'%}" alt="Горилла" />
+                    <img src="{% static 'app/content/img/monkeys_foto/m6.jpg'%}" alt="Гамадрил" />
+                </div>
+
+                <p>Действительно гибко! При уменьшении страницы, блоки сами перестраивают свое местоположение.</p>
+
+                <hr class="hr_line">
+
+                <p>
+                    А ещё Мартышка решила создать панельку навигации, с помощью которой она всегда могла бы вернуться на эту 
+                    страницу и полюбоваться собой.<br>
+                    Скрестив списки и ссылки, а так же поколдовав с абсолютным позиционированием и псевдоклассами, 
+                    Мартышка решила эту задачу, и с гордостью продолжила обучение.
+                </p>
+                <p>Перейти к <a href="{% url 'study_html_creating_form' %}">следующей странице</a>.</p>
+            </div>
+
+            <div id="lesson-html-footer">
+                <blockquote>"Да у меня блох меньше, чем атрибутов у каждого тега. Пытаться их все выучить – дело гиблое. Такие знания приходят только с практикой"</blockquote>
+                <cite>(из Великих мыслей Мартышки Чубатой).</cite>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+    {% endblock study%}

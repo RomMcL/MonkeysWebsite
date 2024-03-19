@@ -1,0 +1,66 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+
+{% load static %}
+
+<div class="notebook-block">
+
+
+    <h2> {{post_1.title}} </h2>
+
+    <p>Автор статьи: {{post_1.author}}</p>
+    <p>Дата: {{post_1.posted}}</p>
+
+    {% if post_1.image and post_1.image.url != '/media/temp.jpg' %}
+    <img class="img-blogpost" src="{{ post_1.image.url }}" alt="Картинка статьи блога" />
+    {% endif %}
+
+    <p> {{post_1.content|linebreaksbr}} </p>      {# вывод текста по абзацам#}
+
+    <br />
+    <br />
+
+    {% if user.is_authenticated %}
+    <h4 class="blogpost-com-tit">Добавить комментарий</h4>
+    <form method="POST">
+        {% csrf_token %} {# защита от атак CSRF#}
+        <div>
+            {{form.as_p}}
+            <button type="submit" class="save btn_main"> Отправить комментарий </button>
+        </div>
+    </form>
+    {% else %}
+    <h3> Для добавления своего комментария, пожалуйста, авторизуйтесь </h3>
+    {% endif %}
+
+</div>
+
+<br />
+<p><a href="{% url 'blog' %}" id="back" class="btn_main"> &laquo; Назад к списку статей </a></p>
+<hr class="hr_line" />
+<h3>Комментарии:</h3>
+
+
+<div class="stickers-container">
+    {% for comment in comments %}
+    <div class="sticker">
+        <img class="stud-sticker" alt="image" src="{% static 'app/content/img/stud.png'%}" />
+        <h7> {{comment.date}} </h7>
+        <h5> {{comment.author}}: </h5>
+        <p> &quot;{{comment.text|linebreaksbr}}&quot; </p>
+    </div>
+    {% endfor %}
+</div>
+
+<script>
+   // Пошевелим комменты
+    let sticker = document.querySelectorAll(".sticker"), rotate;
+    for (let i = 0; i < sticker.length; i++) {
+        rotate = Math.random() * 5 * (Math.round(Math.random()) ? 1 : -1);
+        sticker[i].style.transform = "rotate(" + rotate + "deg)";
+    }
+</script>
+
+
+{% endblock %}

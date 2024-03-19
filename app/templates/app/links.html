@@ -1,0 +1,29 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+{% load static %}
+
+<div class="notebook-block">
+
+    <h2>{{ title }}.</h2>
+    <h3>{{ message }}</h3>
+
+    <div class="links-block">
+        <a href="https://webref.ru/html" target="_blank"> <img src="{% static 'app/content/logo_html.png' %}" height="100" width="100" alt="Logo 1" /></a>
+
+        <a href="https://webref.ru/css" target="_blank"> <img src="{% static 'app/content/logo_css.png' %}" height="100" width="100" alt="Logo 2" /></a>
+
+        <a href="https://metanit.com/python/tutorial" target="_blank"> <img src="{% static 'app/content/logo_python.png' %}" height="100" width="100" alt="Logo 3" /></a>
+
+        <a href="https://metanit.com/python/django/1.1.php" target="_blank"> <img src="{% static 'app/content/logo_django.png' %}" height="100" width="100" alt="Logo 4" /></a>
+    </div>
+
+
+
+
+</div>
+
+
+
+{% endblock %}

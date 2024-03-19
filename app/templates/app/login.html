@@ -1,0 +1,52 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+
+<div class="notebook-block">
+
+    <h2>{{ title }}</h2>
+    <div class="row">
+        <div class="col-md-8">
+            <section id="loginForm">
+                <form action="." method="post" class="form-horizontal">
+                    {% csrf_token %}
+                    <h4>Используйте локальную учетную запись для входа в систему.</h4>
+
+                    <div class="form_login">
+                        <label class="login_label control-label" for="id_username">Имя пользователя</label>
+                        {{ form.username }}<br>
+                    </div>
+                    <div class="form_login">
+                        <label class="login_label control-label" for="id_username">Пароль</label>
+                        {{ form.password }}<br>
+                    </div>
+                    <div class="form_login">
+                        <input type="hidden" name="next" value="/" />
+                        <input type="submit" value="Войти" class="btn_main" />
+                    </div>
+
+                 
+                    {% if form.errors %}
+                    <p class="validation-summary-errors">Пожалуйста, введите правильное имя пользователя и пароль.</p>
+                    {% endif %}
+                </form>
+            </section>
+        </div>
+        <div class="col-md-4">
+            <section id="socialLoginForm"></section>
+        </div>
+    </div>
+
+</div>
+
+
+
+{% endblock %}
+
+
+{% block scripts %}
+
+    {% load static %}
+<script src="{% static 'app/scripts/jquery.validate.min.js' %}"></script>
+
+{% endblock %}

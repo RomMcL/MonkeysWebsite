@@ -1,0 +1,230 @@
+﻿{% extends "app/study.html" %}
+
+{% block study %}
+
+<div class="study-notebook-block">
+
+
+    <div class="first-page-notebook">
+        <h2>{{ task_title }}.</h2>
+        <h3>{{ task }} Изучить HTML-формы, их элементы и предназначение.</h3>
+        <p>
+            Научиться создавать HTML-формы с полями для ввода текста, выпадающими списками, чекбоксами и радиокнопками. 
+            Элемент label. Элемент button. <br />
+            Научиться создавать таблицы для упорядочивания информации.
+
+        </p>
+        <ul class="ul_list">
+            <li>Создать форму регистрации.</li>
+            <li>Создать форму опроса.</li>
+            <li>Создать таблицу с данными из формы опроса.</li>
+        </ul>
+    </div>
+
+    <div id="spring"></div>
+
+    <div class="second-page-notebook">
+        <div class="lesson-html-div">
+            <div class="lesson-html-header-wrapper">
+                <ul id="lesson-html-navigation_left">
+                    <a href="{% url 'study_html_monkey_card' %}">
+                    <li>&lt;&lt;</li></a>
+                    <a href="{% url 'anketa' %}">
+                    <li>&gt;&gt;</li></a>
+                </ul>
+
+                <ul id="lesson-html-navigation_right">
+                    <a href="{% url 'study' %}">
+                    <li>На главную</li></a>
+                    <a href="{% url 'study_html_monkey_card' %}">
+                    <li>Визитка</li></a>
+                </ul>
+
+                <div class="lesson-html-header">
+                    Создание форм и таблиц
+                </div>
+            </div>
+
+            <div id="lesson-html-main">
+                <p>
+                    Мартышке пришла в голову мысль, что было бы не плохо не только рассказывать о себе, но и узнавать что-то о других мартышках, заходящих к ней в гости.  Для этого существуют формы, в которых можно разместить те или иные поля для взаимодействия пользователей с сайтом.
+                </p>
+                <hr class="hr_line">
+
+                <h3 class="lesson-html-subtitle">Форма регистрации</h3>
+
+                <div class="lesson-html-form_block">
+                    <div class="lesson-html-form_description">
+                        <p>
+                            Первым делом Мартышка создала форму регистрации. С её помощью в дальнейшем можно будет разделять посетителей на гостей и пользователей, давая им те или иные возможности взаимодействия с сайтом.<br>
+                            Сейчас это просто форма, внешняя оболочка, которая не несёт в себе никакого функционала. Но это лишь пока.
+                        </p>
+                    </div>
+                    <form class="lesson-html-form_style" action="#" method="get">
+                        <div class="lesson-html-form_name">Регистрация</div>
+                        <div class="lesson-html-form_section">
+                            <label for="user_name">Ваше имя</label><br>
+                            <input type="text" value="Чубатая" placeholder="Введите имя" name="user_name" id="user_name" maxlength="20">
+                        </div>
+                        <div class="lesson-html-form_section">
+                            <label for="user_mail">Ваша почта</label><br>
+                            <input type="email" value="monkey@jungle.br" placeholder="Введите почту" name="user_mail" id="user_mail" maxlength="20">
+                        </div>
+                        <div class="lesson-html-form_section">
+                            <label for="user_login">Придумайте логин</label><br>
+                            <input type="text" value="Best_Monkey" placeholder="Введите логин" name="user_login" id="user_login" maxlength="20">
+                        </div>
+                        <div class="lesson-html-form_section">
+                            <label for="user_pas">Придумайте пароль</label><br>
+                            <input type="password" value="" placeholder="Введите пароль" name="user_pas" id="user_pas" maxlength="20">
+                        </div>
+                        <div class="lesson-html-form_section">
+                            <label for="user_pas_rep">Повторите пароль</label><br>
+                            <input type="password" value="" placeholder="Введите пароль ещё раз" name="user_pas_rep" id="user_pas_rep" maxlength="20">
+                        </div>
+                        <div>
+                            <button type="submit" name="button_reg" id="button_reg">Регистрация</button>
+                        </div>
+                    </form>
+                </div>
+
+                <h3 class="lesson-html-subtitle">Форма опроса</h3>
+
+                <div class="lesson-html-form_block">
+                    <form class="lesson-html-form_style" action="#" method="get">
+                        <div class="lesson-html-form_name">Форма опроса</div>
+
+                        <div class="lesson-html-form_section">
+                            <span class="lesson-html-opr_question">Видовая принадлежность</span><br>
+                            <select name="select_vid">
+                                <option value="Hamadryas">Гамадрил </option>
+                                <option value="Gorilla">Горилла</option>
+                                <option value="Macaque">Макака</option>
+                                <option value="Monkey" selected>Мартышка</option>
+                                <option value="Orangutan">Орангутан</option>
+                                <option value="Baboon">Павиан</option>
+                                <option value="Chimpanzee">Шимпанзе</option>
+                            </select>
+                        </div>
+
+                        <div class="lesson-html-form_section">
+                            <span class="lesson-html-opr_question">Половая принадлежность</span><br>
+                            <label for="radio_gender_he">Самец</label>
+                            <input type="radio" name="radio_gender" id="radio_gender_he">
+                            <label for="radio_gender_she">Самка</label>
+                            <input type="radio" name="radio_gender" id="radio_gender_she">
+                        </div>
+
+                        <div class="lesson-html-form_section">
+                            <span class="lesson-html-opr_question">Любимые лакомства</span><br>
+                            <table class="lesson-html-table_opr" cellpadding="3" cellspacing="2">
+                                <tr>
+                                    <td><input type="checkbox" name="check_banan" id="check_banan" value="yes"></td>
+                                    <td><label for="check_banan">Банан</label></td>
+                                    <td><input type="checkbox" name="check_pear" id="check_pear" value="yes"></td>
+                                    <td><label for="check_pear">Груша</label></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" name="check_orange" id="check_orange" value="yes"></td>
+                                    <td><label for="check_orange">Апельсин</label></td>
+                                    <td><input type="checkbox" name="check_apple" id="check_apple" value="yes"></td>
+                                    <td><label for="check_apple">Яблочко</label></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" name="check_kiwi" id="check_kiwi" value="yes"></td>
+                                    <td><label for="check_kiwi">Киви</label></td>
+                                    <td><input type="checkbox" name="check_mushroom" id="check_mushroom" value="yes"></td>
+                                    <td><label for="check_mushroom">Грибочки</label></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1"><input type="checkbox" name="check_alco_bloh" id="check_alco_bloh" value="yes"></td>
+                                    <td colspan="3" id="last_td"><label for="check_alco_bloh">Забродивший фрукт <br> с солёными блошками</label></td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="lesson-html-form_section">
+                            <span class="lesson-html-opr_question">Одна умная мысль</span><br>
+                            <textarea name="text_thought" value="Мыслей не обнаружено" placeholder="Мысль длинной до 100 символов" maxlength="100"></textarea>
+                        </div>
+
+                        <div>
+                            <button type="reset" name="button_opr_res" id="button_opr_res">Очистить форму</button><br><br>
+                            <button type="submit" name="button_opr" id="button_opr">Внести эти ответы в анналы истории</button>
+                        </div>
+                    </form>
+
+                    <div class="lesson-html-form_description">
+                        <p> Во второй форме Мартышка решила узнать о своих гостях более детальную информацию, поэтому применила в ней другие элементы взаимодействия. Это тоже лишь внешний вид. Как и в первой форме, здесь можно радостно заполнить все поля, но эта информация никуда не уйдет.  Что бы у этих форм появился работающий функционал, знаний только лишь <abbr title="HyperText Markup Language (Язык разметки гипертекста)">HTML</abbr> и <abbr title="Cascading Style Sheets (Каскадные таблицы стилей)">CSS</abbr> мало. Ведь нужно не только получить информацию, но и обработать её, а потом вывести в какую-нибудь таблицу, вроде той, что Мартышка создала ниже.</p>
+                    </div>
+                </div>
+
+                <h3 class="lesson-html-subtitle">Таблица вывода</h3>
+
+                <table class="lesson-html-table_itog" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <th>Вид</th>
+                        <th>Имя</th>
+                        <th>Пол</th>
+                        <th>Предпочитаемый рацион</th>
+                        <th>Умная мысль</th>
+                    </tr>
+
+                    <tr>
+                        <td>Мартышка</td>
+                        <td class="lesson-html-td_itog_name">Чубатая</td>
+                        <td>Самец</td>
+                        <td>Киви, Груша</td>
+                        <td class="lesson-html-td_itog_thought">Интересно, в каком обществе я живу?</td>
+                    </tr>
+
+                    <tr>
+                        <td>Павиан</td>
+                        <td class="lesson-html-td_itog_name">Григорий</td>
+                        <td>Самец</td>
+                        <td>Грибочки, Забродивший фрукт с солёными блошками</td>
+                        <td class="lesson-html-td_itog_thought">Мыслей не обнаружено</td>
+                    </tr>
+
+                    <tr>
+                        <td>Макака</td>
+                        <td class="lesson-html-td_itog_name">Анфиса</td>
+                        <td>Самка</td>
+                        <td>Банан</td>
+                        <td class="lesson-html-td_itog_thought">Я сильная и независимая. У меня есть банан.</td>
+                    </tr>
+
+
+                </table>
+
+                <p>Сейчас эта табличка-пример заполнена вручную, но по задумке Мартышки, она должна заполняться автоматически исходя из ответов посетителей сайта.</p>
+
+                <hr class="hr_line">
+
+                <p class="lesson-html-final_text">
+                    Как Мартышке решить поставленные задачи она не знала. Что ей нужно познать, с какими языками ознакомиться?<br>
+                    <abbr title="JavaScript (Мультипарадигменный язык программирования)">JS</abbr>,
+                    <abbr title="PHP: Hypertext Preprocessor (PHP: препроцессор гипертекста)">PHP</abbr> или что-то иное?<br>
+                    Где хранить и откуда брать собранную информацию? Наверное нужна какая-то база данных.
+                    <abbr title="Structured Query Language (Язык структурированных запросов)">SQL</abbr>?<br><br>
+                    Первым Мартышка решила пощупать язык JavaScript.
+                    <br />
+                    <a href="{% url 'study' %}">(Перейти к ощупыванию)</a>
+                </p>
+
+            </div>
+            <div id="lesson-html-footer">
+                <blockquote>"Злоупотребление забродившими фруктами вредит вашему интеллекту и сильно тормозит прогресс обучения"</blockquote>
+                <cite>(из Великих мыслей Мартышки Чубатой).</cite>
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+</div>
+
+
+{% endblock study%}

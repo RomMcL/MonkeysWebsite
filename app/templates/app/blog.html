@@ -1,0 +1,29 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+
+<div class="notebook-block">
+
+    <h2>{{ title }}</h2>
+    
+
+    {% for post in posts %}
+
+    <hr class="hr_line" />
+
+    <div class="">
+        <h2> {{post.title}} </h2>
+        <h4 style="margin-left: 5%;"> {{post.posted}} </h4>
+        <div style="text-align: center;">
+            <p> {{post.description}} </p>
+            <p><a href="{% url 'blogpost' parametr=post.id %}" class="btn_main"> Читать далее &raquo; </a> </p>
+        </div>
+    </div>
+
+    {% endfor %}
+
+</div>
+
+
+
+{% endblock %}

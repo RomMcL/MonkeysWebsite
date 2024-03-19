@@ -1,0 +1,55 @@
+﻿{% extends "app/study.html" %}
+
+{% block study %}
+
+<div class="study-notebook-block">
+
+
+    <div class="first-page-notebook">
+        <h2>{{ task_title }}.</h2>
+        <h3>{{ task }} Создать первую html страничку.</h3>
+        <p>
+            Изучить структуру html документа и первые теги, необходимые для создание самой простой странички.
+        </p>
+        <ul class="ul_list">
+            <li>Объявление типа документа.</li>
+            <li>Корневой элемент &lt;html&gt;.</li>
+            <li>Теги &lt;head&gt; и &lt;body&gt;.</li>
+            <li>Необходимые компоненты внутри &lt;head&gt;.</li>
+            <li>Ссылки.</li>
+        </ul>
+    </div>
+
+    <div id="spring"></div>
+
+    <div class="second-page-notebook">
+        <div id="first-html-pg">
+            <div>
+                <blockquote>"Создание скелета документа – это фундамент, с которого всё начинается.  
+                А посему, увековечим его &lt;head&gt; тегами &lt;meta charset="utf-8"&gt; и &lt;title&gt;"</blockquote>
+                <cite>(из Великих мыслей Мартышки Чубатой).</cite>
+            </div>
+
+            <br>
+            <br>
+            <br>
+
+            <div>
+                <p>
+                    Разобравшись со скелетом и самыми основными тегами любого html документа, Мартышка посмотрела на свою первую страничку и поняла, что изучать язык разметки HTML нужно параллельно с языком стилей CSS, иначе всё выглядит скучно и уныло.
+                </p>
+
+                <p>
+                    Поэтому она дала себе слово, что следующая её страница будет уже с применением стилей.
+                </p>
+
+                <a href="{% url 'study_html_text_formatting' %}">Перейти на следующую страницу.</a>
+            </div>
+        </div>
+        
+    </div>
+
+</div>
+
+
+{% endblock study%}

@@ -1,0 +1,63 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+
+<div class="notebook-block">
+
+    <h2>{{ title }}</h2>
+
+    {% if user.is_authenticated %}
+
+    <div>
+        <p>Ваш ник: {{ user }}.</p>
+        <p>Почётный пользователь N: {{ user.id }}.</p>
+
+        <h3>Основной опрос:</h3>
+        {% if user.profile.poll %}
+        <p>Вы прошли основной опрос сайта.</p>
+        <p>Предоставленная информация:</p>
+        <ul>
+            <li><span>Имя:</span> {{ name }}</li>
+            <li><span>Вид:</span> {{ type_monkey }}</li>
+            <li><span>Пол:</span> {{ gender }}</li>
+            <li><span>Род деятельности:</span> {{ job }}</li>
+            <li><span>Рацион:</span> {{ diet }}</li>
+            <li><span>Умная мысль:</span> {{ message }}</li>
+            <li><span>Ваш e-mail:</span> {{ email }}</li>
+        </ul>
+        <p><a class="btn_main" href="{% url 'anketarez' %}"> Посмотреть анализ ответов </a></p>
+        <p><a class="btn_main" href="{% url 'anketa' %}"> Изменить свой ответ </a></p>
+        {% else %}
+        <p>Вы ещё не проходили основной опрос сайта.</p>
+        <p><a class="btn_main" href="{% url 'anketa' %}"> Исправить это недоразумение </a></p>
+        {% endif %}
+    </div>
+
+    {% else %}
+    <div class="anket_itog">
+        <p> Вы не зарегистрированы. </p>
+
+        <table>
+            <tr>
+                <td>
+                    <p><a class="btn_main" href="{% url 'login' %}"> Войти </a></p>
+                </td>
+                <td>
+                    <span>или</span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <p><a class="btn_main" href="{% url 'registration' %}"> Зарегистрироваться </a></p>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    {% endif %}
+
+</div>
+
+
+
+{% endblock %}

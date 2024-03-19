@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <Name>MonkeysWebsite</Name>
+    <RootNamespace>MonkeysWebsite</RootNamespace>
+    <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
+    <SuppressConfigureTestFrameworkPrompt>true</SuppressConfigureTestFrameworkPrompt>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>34e3d2cb-e417-41ca-949e-4036993ca814</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <ProjectTypeGuids>{5F0BE9CA-D677-4A4D-8806-6076C0FAAD37};{349c5851-65df-11da-9384-00065b846f21};{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <StartupFile>manage.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <WebBrowserUrl>http://localhost</WebBrowserUrl>
+    <LaunchProvider>Django launcher</LaunchProvider>
+    <DjangoSettingsModule>MonkeysWebsite.settings</DjangoSettingsModule>
+    <OutputPath>.</OutputPath>
+    <SuppressCollectPythonCloudServiceFiles>true</SuppressCollectPythonCloudServiceFiles>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="app\forms.py" />
+    <Compile Include="app\models.py" />
+    <Compile Include="app\tests.py" />
+    <Compile Include="app\views.py" />
+    <Compile Include="app\__init__.py" />
+    <Compile Include="app\migrations\__init__.py" />
+    <Compile Include="manage.py" />
+    <Compile Include="MonkeysWebsite\__init__.py" />
+    <Compile Include="MonkeysWebsite\settings.py" />
+    <Compile Include="MonkeysWebsite\urls.py" />
+    <Compile Include="MonkeysWebsite\wsgi.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="app\" />
+    <Folder Include="app\migrations\" />
+    <Folder Include="app\static\" />
+    <Folder Include="app\static\app\" />
+    <Folder Include="app\static\app\content\" />
+    <Folder Include="app\static\app\content\img\" />
+    <Folder Include="app\static\app\content\img\monkeys_foto\" />
+    <Folder Include="app\static\app\fonts\" />
+    <Folder Include="app\static\app\scripts\" />
+    <Folder Include="app\templates\" />
+    <Folder Include="app\templates\app\" />
+    <Folder Include="app\templates\app\study\" />
+    <Folder Include="media\" />
+    <Folder Include="MonkeysWebsite\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app\static\app\content\img\avat_1.jpg" />
+    <Content Include="app\static\app\content\img\avat_2.jpg" />
+    <Content Include="app\static\app\content\img\box.svg" />
+    <Content Include="app\static\app\content\img\btn_calc.png" />
+    <Content Include="app\static\app\content\img\down.svg" />
+    <Content Include="app\static\app\content\img\fon_head-texture.jpg" />
+    <Content Include="app\static\app\content\img\fon_paper.jpg" />
+    <Content Include="app\static\app\content\img\fon_texture.jpg" />
+    <Content Include="app\static\app\content\img\monkeys_foto\arrow_left.svg" />
+    <Content Include="app\static\app\content\img\monkeys_foto\arrow_right.svg" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m1.jpg" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m1_0.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m1_1.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m1_2.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m1_3.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m1_4.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m1_5.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m1_6.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m1_7.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m1_8.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m2.jpg" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m2_0.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m2_1.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m2_2.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m2_3.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m2_4.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m2_5.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m2_6.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m2_7.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m2_8.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m3.jpg" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m3_0.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m3_1.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m3_2.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m3_3.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m3_4.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m3_5.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m3_6.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m3_7.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m3_8.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m4.jpg" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m4_0.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m4_1.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m4_2.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m4_3.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m4_4.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m4_5.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m4_6.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m4_7.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m4_8.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m5.jpg" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m5_0.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m5_1.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m5_2.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m5_3.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m5_4.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m5_5.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m5_6.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m5_7.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m5_8.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m6.jpg" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m6_0.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m6_1.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m6_2.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m6_3.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m6_4.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m6_5.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m6_6.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m6_7.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\m6_8.png" />
+    <Content Include="app\static\app\content\img\monkeys_foto\play.svg" />
+    <Content Include="app\static\app\content\img\monkeys_foto\stop.svg" />
+    <Content Include="app\static\app\content\img\obloj1.png" />
+    <Content Include="app\static\app\content\img\obloj2.png" />
+    <Content Include="app\static\app\content\img\obloj3.png" />
+    <Content Include="app\static\app\content\img\ok.svg" />
+    <Content Include="app\static\app\content\img\pruj.png" />
+    <Content Include="app\static\app\content\img\return.svg" />
+    <Content Include="app\static\app\content\img\stud.png" />
+    <Content Include="app\static\app\content\img\up_down.svg" />
+    <Content Include="app\static\app\content\img\urn.svg" />
+    <Content Include="app\static\app\content\img\voskl.png" />
+    <Content Include="app\static\app\content\logo_css.png" />
+    <Content Include="app\static\app\content\logo_django.png" />
+    <Content Include="app\static\app\content\logo_evol.png" />
+    <Content Include="app\static\app\content\logo_html.png" />
+    <Content Include="app\static\app\content\logo_python.png" />
+    <Content Include="app\static\app\content\mail.png" />
+    <Content Include="app\static\app\content\monkey_attention.png" />
+    <Content Include="app\static\app\content\monkey_blog.png" />
+    <Content Include="app\static\app\content\monkey_study.png" />
+    <Content Include="app\static\app\content\openedu.jpg" />
+    <Content Include="app\static\app\content\opros.png" />
+    <Content Include="app\static\app\content\vk.png" />
+    <Content Include="app\static\app\fonts\Skellyman.ttf" />
+    <Content Include="app\static\app\fonts\Ustroke.ttf" />
+    <Content Include="app\static\app\scripts\analysis_chart.js" />
+    <Content Include="app\static\app\scripts\study_budget.js" />
+    <Content Include="app\static\app\scripts\study_calculator.js" />
+    <Content Include="app\static\app\scripts\study_slider.js" />
+    <Content Include="app\static\app\scripts\study_todo.js" />
+    <Content Include="app\templates\app\anketa.html" />
+    <Content Include="app\templates\app\anketarez.html" />
+    <Content Include="app\templates\app\blog.html" />
+    <Content Include="app\templates\app\blogpost.html" />
+    <Content Include="app\templates\app\links.html" />
+    <Content Include="app\templates\app\newpost.html" />
+    <Content Include="app\templates\app\profile.html" />
+    <Content Include="app\templates\app\registration.html" />
+    <Content Include="app\templates\app\study.html" />
+    <Content Include="app\templates\app\study\study_html_creating_form.html" />
+    <Content Include="app\templates\app\study\study_html_firstpage.html" />
+    <Content Include="app\templates\app\study\study_html_monkey_card.html" />
+    <Content Include="app\templates\app\study\study_html_text_formatting.html" />
+    <Content Include="app\templates\app\study\study_js_budget.html" />
+    <Content Include="app\templates\app\study\study_js_calculator.html" />
+    <Content Include="app\templates\app\study\study_js_slider.html" />
+    <Content Include="app\templates\app\study\study_js_todo.html" />
+    <Content Include="app\templates\app\study\study_js_weather.html" />
+    <Content Include="app\templates\app\videopost.html" />
+    <Content Include="media\monkey_blog_e8cKnAk.png" />
+    <Content Include="media\monkey_study_k2Wv5Yu.png" />
+    <Content Include="media\openedu.jpg" />
+    <Content Include="media\opros.png" />
+    <Content Include="media\pr_1.jpg" />
+    <Content Include="media\pr_2.jpg" />
+    <Content Include="media\video_1.mp4" />
+    <Content Include="media\video_2.mp4" />
+    <Content Include="requirements.txt" />
+    <Content Include="db.sqlite3" />
+    <Content Include="app\static\app\content\bootstrap.css" />
+    <Content Include="app\static\app\content\bootstrap.min.css" />
+    <Content Include="app\static\app\content\site.css" />
+    <Content Include="app\static\app\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="app\static\app\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="app\static\app\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="app\static\app\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="app\static\app\scripts\bootstrap.js" />
+    <Content Include="app\static\app\scripts\bootstrap.min.js" />
+    <Content Include="app\static\app\scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="app\static\app\scripts\jquery-1.10.2.js" />
+    <Content Include="app\static\app\scripts\jquery-1.10.2.min.js" />
+    <Content Include="app\static\app\scripts\jquery-1.10.2.min.map" />
+    <Content Include="app\static\app\scripts\jquery.validate-vsdoc.js" />
+    <Content Include="app\static\app\scripts\jquery.validate.js" />
+    <Content Include="app\static\app\scripts\jquery.validate.min.js" />
+    <Content Include="app\static\app\scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="app\static\app\scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="app\static\app\scripts\modernizr-2.6.2.js" />
+    <Content Include="app\static\app\scripts\respond.js" />
+    <Content Include="app\static\app\scripts\respond.min.js" />
+    <Content Include="app\static\app\scripts\_references.js" />
+    <Content Include="app\templates\app\about.html" />
+    <Content Include="app\templates\app\contact.html" />
+    <Content Include="app\templates\app\index.html" />
+    <Content Include="app\templates\app\layout.html" />
+    <Content Include="app\templates\app\login.html" />
+    <Content Include="app\templates\app\loginpartial.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="readme.html">
+      <SubType>WebBrowser</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Interpreter Include="env\">
+      <Id>env</Id>
+      <Version>0.0</Version>
+      <Description>env (Python 3.12 (64-bit))</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X64</Architecture>
+    </Interpreter>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Django.targets" />
+  <!-- Specify pre- and post-build commands in the BeforeBuild and 
+       AfterBuild targets below. -->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <AutoAssignPort>True</AutoAssignPort>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

@@ -1,0 +1,162 @@
+﻿{% extends "app/study.html" %}
+
+{% block study %}
+
+{% load static %}
+
+<div class="study-notebook-block">
+
+
+    <div class="first-page-notebook">
+        <h2>{{ task_title }}.</h2>
+        <h3>{{ task }} Написать текстовый квест.</h3>
+        <p>
+            Идея задачи: С помощью формы ввода данных, дать возможность пользователю ответить на ряд вопросов по теме 
+            задания квеста. <br />
+            Задание квеста: Нужно помочь Мартышке составить свой бюджет на месяц. Различные варианты распределения статей 
+            бюджета должны приводить к различным результатам. <br />
+            Цель квеста: Бюджет должен быть составлен таким образом, чтобы Мартышка не просто пережила прогнозируемый месяц, 
+            но и сумела охмурить некую Макаку. Поражение на любовном фронте считается плохим результатом!
+        </p>
+        <ul class="ul_list">
+            <li>При фокусе на определённом поле формы появляется подсказка по данному полю.</li>
+            <li>При попытке отправить заведомо некорректные данные выводится сообщение об ошибке.</li>
+            <li>Удача в покорении сердца Макаки = Победа!</li>
+        </ul>
+    </div>
+
+    <div id="spring"></div>
+
+    <div class="second-page-notebook">
+        <section id="budget_calculation">
+            <form id="form_budget">
+
+                <div class="tablo_budget">
+                    <h3>Доход:</h3>
+                    <span id="tablo_debit">45</span>
+                    <span>денежек</span>
+                </div>
+
+                <table>
+                    <tr>
+                        <td colspan="1"><label for="data_salary">Ближайшая зарплата:</label></td>
+                        <td colspan="2"><input type="date" name="data_salary" id="data_salary"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" rowspan="2"><span class="podgon">Зарплата:</span></td>
+                        <td><label for="color_salary_white">Белая</label></td>
+                        <td><input type="radio" name="radio_color_salary" id="color_salary_white" value="color_salary_white" checked></td>
+                    </tr>
+                    <tr>
+                        <td><label for="color_salary_grey">Серая</label></td>
+                        <td><input type="radio" name="radio_color_salary" id="color_salary_grey" value="color_salary_grey"></td>
+                    </tr>
+                </table>
+
+                <div class="tablo_budget">
+                    <h3>Расход:</h3>
+                    <span id="tablo_credit">0</span>
+                    <span>денежек</span>
+                </div>
+
+                <table>
+                    <tr>
+                        <td colspan="1"><label for="payment_jkh">Плата УправДреву:</label></td>
+                        <td colspan="2"><input type="number" name="payment_jkh" id="payment_jkh" min="0" max="60" maxlength="2"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="1"><label for="payment_connection">Оплата связи:</label></td>
+                        <td colspan="2"><input type="number" name="payment_connection" id="payment_connection" min="0" max="60" maxlength="2"> </td>
+                    </tr>
+                    <tr>
+                        <td colspan="1"><label for="payment_food">Пища на месяц:</label></td>
+                        <td colspan="2"><input type="number" name="payment_food" id="payment_food" min="0" max="60" maxlength="2"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" rowspan="3"><span class="podgon">Обновление<br>гардероба:</span></td>
+                        <td><input type="radio" name="payment_clothes" id="payment_clothes_0" value="payment_clothes_0" checked></td>
+                        <td><label for="payment_clothes_0">Ходить в старых</label></td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" name="payment_clothes" id="payment_clothes_1" value="payment_clothes_1"></td>
+                        <td><label for="payment_clothes_1">Новые треники</label></td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" name="payment_clothes" id="payment_clothes_2" value="payment_clothes_2"></td>
+                        <td><label for="payment_clothes_2">Модные штанишки</label></td>
+                    </tr>
+                    <tr>
+                        <td colspan="1"><label for="payment_hygiene">Гигиена:</label></td>
+                        <td colspan="2"><input type="number" name="payment_hygiene" id="payment_hygiene" min="0" max="60" maxlength="2"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="1"><label for="payment_love">Личная жизнь:</label></td>
+                        <td colspan="2"><input type="number" name="payment_love" id="payment_love" min="0" max="60" maxlength="2"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="1"><label for="payment_vacation">Отложить на отпуск:</label></td>
+                        <td colspan="2"><input type="number" name="payment_vacation" id="payment_vacation" min="0" max="60" maxlength="2"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"> <br> <input type="button" id="btn_budget_go" class="btn_main" name="analiz" value="Спрогнозировать результат"></td>
+                    </tr>
+                </table>
+
+                <span id="form_error_text"></span>
+
+            </form>
+
+            <div id="hint_budget">
+                <img class="img_znak" src="{% static 'app/content/img/voskl.png' %}" alt="Внимание!" />
+                <span id="hint_text" class="podgon"></span>
+            </div>
+
+        </section>
+
+        <section id="budget_result" class="podgon" hidden>
+
+            <h3>Результаты:</h3>
+
+            <p class="result_point">
+                <span id="result_data"></span>
+            </p>
+            <p class="result_point" hidden>
+                <span id="result_color_salary"></span>
+            </p>
+            <p class="result_point" hidden>
+                <span id="result_payment_jkh"></span>
+            </p>
+            <p class="result_point" hidden>
+                <span id="result_payment_connection"></span>
+            </p>
+            <p class="result_point" hidden>
+                <span id="result_payment_food"></span>
+            </p>
+            <p class="result_point" hidden>
+                <span id="result_payment_clothes"></span>
+            </p>
+            <p class="result_point" hidden>
+                <span id="result_payment_hygiene"></span>
+            </p>
+            <p class="result_point" hidden>
+                <span id="result_payment_love_1"></span> <br>
+                <span id="result_payment_love_2"></span> <br>
+                <span id="result_payment_love_22"></span> <br>
+                <span id="result_payment_love_3"></span>
+            </p>
+            <p class="result_point" hidden>
+                <span id="result_payment_vacation"></span>
+            </p>
+
+            <button class="btn_main" id="btn_budget_nextres">Далее</button>
+
+        </section>
+
+    </div>
+
+</div>
+
+
+<script src="{% static 'app/scripts/study_budget.js' %}"></script>
+
+{% endblock study%}

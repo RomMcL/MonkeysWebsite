@@ -1,0 +1,139 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+
+{% load static %}
+
+<div class="notebook-block">
+    <h1>Мартышка и WEB 2.0 </h1>
+    <p>
+        Приветствую Вас! Вы попали на сайт-историю, сайт-эксперимент. Он является результатом прохождения курса по WEB
+        программированию с использованием фреймворка Django.
+    </p>
+    <p>
+        Я часто подхожу к любым начинаниям не совсем стандартно, поэтому и в данном случае сайт представляет собой историю 
+        одной Мартышки, которая пытается научиться создавать сайты. <br />
+        В разделе Учёба она учится и экспериментирует, а в Блоге описывает свои мысли и результаты.
+    </p>
+    <p>Приятной прогулки по сайту!</p>
+    <h3>Интересное в блоге:</h3>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="2000">
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <div class="carousel-img-div">
+                    <img src="{% static 'app/content/openedu.jpg '%} " alt="Первый слайд" class="img-responsive" />
+                </div>
+                <div class="carousel-caption" role="option">
+                        <p>Рождение сайта</p>
+                        <a class="btn_main" href="{% url 'blogpost' parametr=1 %}">
+                            Читать далее
+                        </a>                   
+                </div>
+            </div>
+            <div class="item">
+                <div class="carousel-img-div">
+                    <img src="{% static 'app/content/monkey_blog.png' %}" alt="Второй слайд" class="img-responsive" />
+                </div>                
+                <div class="carousel-caption" role="option">
+                    <p>О Блоге</p>
+                    <a class="btn_main" href="{% url 'blogpost' parametr=2 %}">
+                        Читать далее
+                    </a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="carousel-img-div">
+                    <img src=" {% static 'app/content/monkey_study.png' %} " alt="Третий слайд" class="img-responsive" />
+                </div>
+                <div class="carousel-caption" role="option">
+                    <p>Учёба Мартышки</p>
+                    <a class="btn_main" href="{% url 'blogpost' parametr=3 %}">
+                        Читать далее
+                    </a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="carousel-img-div">
+                    <img src=" {% static 'app/content/opros.png'%} " alt="Четвертый слайд" class="img-responsive" />
+                </div>                
+                <div class="carousel-caption" role="option">
+                    <p>Опрос Мартышки</p>
+                    <a class="btn_main" href="{% url 'blogpost' parametr=4 %}">
+                        Читать далее
+                    </a>
+                </div>
+            </div>
+        </div>
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="stickers-container">
+        <div class="sticker">
+            <img class="stud-sticker" alt="Гвоздь" src="{% static 'app/content/img/stud.png' %}" />
+            <img class="img-sticker" alt="Внимание!" src="{% static 'app/content/monkey_attention.png' %}" />
+            <div class="sticker-title">
+                <h2>Предупреждение!</h2>
+            </div>
+            <p>
+                Сайт является учебным! В силу желания разработчика использовать те или иные возможности предмета изучения, 
+                некоторые решения относительно дизайна и функциональности могу показаться не логичными и иррациональными. <br /> 
+                Во избежание конфузов, просьба не реагировать избыточно бурно людей с гипертрофированным чувством вкуса и 
+                отсутствием чувства юмора.
+            </p>
+        </div>
+
+        <div class="sticker">
+            <img class="stud-sticker" alt="Гвоздь" src="{% static 'app/content/img/stud.png' %}" />
+            <img class="img-sticker" alt="Блог" src="{% static 'app/content/monkey_blog.png' %}" />
+            <div class="sticker-title">
+                <h2>Блог Мартышки</h2>
+            </div>
+            <p>Раздел сайта, в котором мы описываем происходящее, уточняем некоторые моменты и просто выражаем свои мысли 
+               относительно данного проекта и не только. <br /> Комментарии категорически приветствуются!</p>
+            <p><a class="btn_main" href="{% url 'blog' %}">Перейти в Блог &raquo;</a></p>
+        </div>
+
+        <div class="sticker">
+            <img class="stud-sticker" alt="Гвоздь" src="{% static 'app/content/img/stud.png' %}" />
+            <img class="img-sticker" alt="Учёба" src="{% static 'app/content/monkey_study.png' %}" />
+            <div class="sticker-title">
+                <h2>Учёба Мартышки</h2>
+            </div>
+            <p>В этом разделе Мартышка учится и экспериментирует. Результаты своих потуг она записывает в тетрадочку в виде 
+               постановки задач и итогов их решения. Начала своё обучение Мартышка с HTML и CSS, а также языков JavaScript 
+               и Python.</p>
+            <p><a class="btn_main" href="{% url 'study' %}">Перейти в Учёбу &raquo;</a></p>
+        </div>
+        <!-- Еще стикеры -->
+    </div>
+
+
+
+</div>
+
+<script>
+   // Пошевелим стикеры
+    let sticker = document.querySelectorAll(".sticker"), rotate;
+    for (let i = 0; i < sticker.length; i++) {
+        rotate = Math.random() * 5 * (Math.round(Math.random()) ? 1 : -1);
+        sticker[i].style.transform = "rotate(" + rotate + "deg)";
+    }
+</script>
+
+{% endblock %}
